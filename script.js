@@ -1,11 +1,11 @@
-// Elements
 const addNoteBtn = document.getElementById('addNote');
 const exportNotesBtn = document.getElementById('exportNotes');
 const noteText = document.getElementById('noteText');
 const notesList = document.getElementById('notesList');
 const dailyVerseEl = document.getElementById('dailyVerse');
+const textColorInput = document.getElementById('textColor');
+const fontSelect = document.getElementById('fontSelect');
 
-// Daily verses array
 const verses = [
   "Psalm 1:3 – He shall be like a tree planted by rivers of water...",
   "Jeremiah 17:7 – Blessed is the one who trusts in Yahuwah...",
@@ -14,17 +14,14 @@ const verses = [
   "Proverbs 3:5 – Trust in Yahuwah with all your heart..."
 ];
 
-// Show a daily verse
 function showDailyVerse() {
   const today = new Date();
   const index = today.getDate() % verses.length;
   dailyVerseEl.textContent = verses[index];
 }
 
-// Load saved notes
 let notes = JSON.parse(localStorage.getItem('scriptureNotes')) || [];
 
-// Display notes
 function displayNotes() {
   notesList.innerHTML = '';
   notes.forEach(note => {
@@ -35,7 +32,6 @@ function displayNotes() {
   });
 }
 
-// Add new note
 addNoteBtn.addEventListener('click', () => {
   const text = noteText.value.trim();
   if (text) {
@@ -46,7 +42,6 @@ addNoteBtn.addEventListener('click', () => {
   }
 });
 
-// Export notes
 exportNotesBtn.addEventListener('click', () => {
   const blob = new Blob([notes.join("\n\n")], { type: 'text/plain' });
   const url = URL.createObjectURL(blob);
@@ -57,6 +52,14 @@ exportNotesBtn.addEventListener('click', () => {
   URL.revokeObjectURL(url);
 });
 
-// Initialize
+textColorInput.addEventListener('input', () => {
+  document.body.style.color = textColorInput.value;
+});
+
+fontSelect.addEventListener('change', () => {
+  const font = fontSelect.value;
+  document.body.style.fontFamily = font === "Inter" ? "'Inter', sans-serif" : "'Great Vibes', cursive";
+});
+
 showDailyVerse();
 displayNotes();
