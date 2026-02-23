@@ -3,23 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scripture Sprouts 🌱</title>
+  <title>Scripture Sprouts</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <img id="logo" src="logo-placeholder.png" alt="Scripture Sprouts Logo">
-    <h1 class="title">Scripture Sprouts 🌱</h1>
-    <p class="subtitle">Mom, may Yahuwah’s Word bloom in your heart every day ❤️‍🔥</p>
+    <h1 class="title">Scripture Sprouts</h1>
+    <p class="subtitle">Mom, may Yahuwah’s Word bloom in your heart every day</p>
     <div class="daily-verse" id="dailyVerse"></div>
+    <div class="customization">
+      <label for="textColor">Text Color:</label>
+      <input type="color" id="textColor" value="#FAF8F0">
+      <label for="fontSelect">Font:</label>
+      <select id="fontSelect">
+        <option value="Inter">Inter (Modern)</option>
+        <option value="Great Vibes">Great Vibes (Elegant Script)</option>
+      </select>
+    </div>
   </header>
   <main>
     <section class="note-input">
       <textarea id="noteText" placeholder="Write a Scripture note..."></textarea>
       <div class="buttons">
-        <button id="addNote">Add Note 🌿</button>
-        <button id="exportNotes">Export Notes 💾</button>
+        <button id="addNote">Add Note</button>
+        <button id="exportNotes">Export Notes</button>
       </div>
     </section>
     <section class="notes-list" id="notesList"></section>
