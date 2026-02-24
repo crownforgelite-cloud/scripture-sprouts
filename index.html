@@ -1,45 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elite Premium Version of our site with enhanced accessiblity and SEO">
-    <title>Elite Premium Version</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scripture Sprouts - A premium spiritual sanctuary for daily scripture contemplation and personal growth">
+  <meta name="keywords" content="scripture, prayer, reflection, spiritual growth, bible verses, meditation">
+  <meta name="author" content="Crown Forge Elite Cloud">
+  <meta name="theme-color" content="#FFD700">
+  <title>Scripture Sprouts | Premium Scripture Sanctuary</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Elite Premium Version</h1>
-        <nav aria-label="Main Navigation">
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="features">
-            <h2>Features</h2>
-            <p>Explore the remarkable features of our service.</p>
-            <textarea aria-label="Character count" oninput="updateCount(this)" placeholder="Type here..."></textarea>
-            <div aria-live="polite" id="charCount">Character count: 0</div>
-            <script>
-                function updateCount(textarea) {
-                    const countDiv = document.getElementById('charCount');
-                    countDiv.innerText = 'Character count: ' + textarea.value.length;
-                }
-            </script>
-        </section>
-        <section id="empty-state" aria-live="polite">
-            <h2>Empty State Design</h2>
-            <p>No content available at the moment. Please check back later!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Crown Forge Lite. All rights reserved.</p>
-        <div aria-label="Keyboard Shortcuts">
-            <p>Keyboard Shortcuts: <kbd>Ctrl</kbd> + <kbd>S</kbd> to Save, <kbd>Ctrl</kbd> + <kbd>P</kbd> to Print.</p>
+  <header role="banner">
+    <div class="header-container">
+      <img id="logo" src="logo-placeholder.png" alt="Scripture Sprouts Premium Logo" loading="lazy">
+      
+      <div class="title-section">
+        <h1 class="title">Scripture Sprouts</h1>
+        <p class="subtitle">Mom, may Yahuwah's Word bloom in your heart every day</p>
+      </div>
+      
+      <div class="daily-verse-container">
+        <div class="daily-verse" id="dailyVerse" role="region" aria-live="polite" aria-label="Daily verse"></div>
+      </div>
+      
+      <div class="customization" role="group" aria-label="Customization options">
+        <div class="customization-item">
+          <label for="textColor" class="customization-label">✨ Text Color:</label>
+          <input 
+            type="color" 
+            id="textColor" 
+            value="#FAF8F0" 
+            aria-label="Select text color"
+            title="Click to change text color"
+          >
         </div>
-    </footer>
+        <div class="customization-item">
+          <label for="fontSelect" class="customization-label">🎨 Font:</label>
+          <select 
+            id="fontSelect"
+            aria-label="Select font style"
+            title="Choose your preferred font"
+          >
+            <option value="Inter">Inter (Modern)</option>
+            <option value="Great Vibes">Great Vibes (Elegant Script)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main role="main" class="main-content">
+    <section class="note-input" aria-labelledby="note-section-title">
+      <h2 id="note-section-title" class="sr-only">Add Scripture Notes</h2>
+      <textarea 
+        id="noteText" 
+        placeholder="✍️ Write a Scripture note..."
+        aria-label="Scripture note input"
+        spellcheck="true"
+        maxlength="1000"
+      ></textarea>
+      <div class="buttons" role="group" aria-label="Note actions">
+        <button 
+          id="addNote"
+          class="btn btn-primary"
+          aria-label="Add note to collection"
+          title="Add your scripture note"
+        >
+          ➕ Add Note
+        </button>
+        <button 
+          id="exportNotes"
+          class="btn btn-secondary"
+          aria-label="Export all notes"
+          title="Download your notes as text file"
+        >
+          📥 Export Notes
+        </button>
+      </div>
+      <div class="character-count" aria-live="polite" aria-label="Character count">
+        <span id="charCount">0</span> / 1000
+      </div>
+    </section>
+
+    <section class="notes-list-container" aria-labelledby="notes-list-title">
+      <h2 id="notes-list-title" class="sr-only">Your Scripture Notes</h2>
+      <div class="notes-list" id="notesList" role="region" aria-live="polite" aria-label="Scripture notes collection"></div>
+      <div class="empty-state" id="emptyState" role="status" aria-label="No notes yet">
+        <p>✨ No notes yet. Start your spiritual journey by adding your first note.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="footer">
+    <div class="footer-content">
+      <p class="footer-text">&copy; 2026 Crown Forge Elite Cloud. All rights reserved.</p>
+      <p class="footer-tagline">Nurturing spiritual growth through daily scripture reflection</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
